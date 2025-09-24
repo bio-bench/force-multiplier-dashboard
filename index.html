@@ -42,7 +42,15 @@
         </section>
 
         <section class="projects-section">
-            <h2>Project Portfolio</h2>
+            <div class="section-header">
+                <h2>Project Portfolio</h2>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="scale">Scale</button>
+                    <button class="filter-btn" data-filter="hold">Hold</button>
+                    <button class="filter-btn" data-filter="deprioritize">Deprioritize</button>
+                </div>
+            </div>
             <div class="projects-grid">
                 <!-- Scale Projects -->
                 <div class="project-card scale" onclick="openProject('protein-ligand')">

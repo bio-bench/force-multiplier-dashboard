@@ -22,28 +22,28 @@ body {
 /* Header */
 .header {
     text-align: center;
-    margin-bottom: 3rem;
-    padding: 2rem 0;
+    margin-bottom: 2rem;
+    padding: 1.5rem 0;
     background: white;
-    border-radius: 16px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .header h1 {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
     font-weight: 700;
     color: #1a202c;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
 }
 
 .subtitle {
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: #718096;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
 }
 
 .timestamp {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: #a0aec0;
     font-weight: 500;
 }
@@ -110,11 +110,64 @@ body {
 }
 
 /* Projects Section */
-.projects-section h2 {
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.section-header h2 {
     font-size: 1.5rem;
     font-weight: 600;
     color: #2d3748;
-    margin-bottom: 2rem;
+    margin: 0;
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 0.5rem 1rem;
+    border: 2px solid #e2e8f0;
+    background: white;
+    color: #4a5568;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+    border-color: #3182ce;
+    color: #3182ce;
+}
+
+.filter-btn.active {
+    background: #3182ce;
+    border-color: #3182ce;
+    color: white;
+}
+
+.filter-btn[data-filter="scale"].active {
+    background: #38a169;
+    border-color: #38a169;
+}
+
+.filter-btn[data-filter="hold"].active {
+    background: #ed8936;
+    border-color: #ed8936;
+}
+
+.filter-btn[data-filter="deprioritize"].active {
+    background: #e53e3e;
+    border-color: #e53e3e;
 }
 
 .projects-grid {
@@ -258,6 +311,17 @@ body {
     font-weight: 500;
 }
 
+/* Filter Animation */
+.project-card {
+    transition: all 0.3s ease;
+}
+
+.project-card.hidden {
+    opacity: 0;
+    transform: scale(0.8);
+    pointer-events: none;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .container {
@@ -265,7 +329,17 @@ body {
     }
     
     .header h1 {
-        font-size: 2rem;
+        font-size: 1.5rem;
+    }
+    
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .filter-buttons {
+        width: 100%;
+        justify-content: center;
     }
     
     .projects-grid {

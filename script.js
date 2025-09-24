@@ -1,4 +1,4 @@
-// Set current timestamp
+// Set current timestamp and initialize filters
 document.addEventListener('DOMContentLoaded', function() {
     const timestampElement = document.getElementById('timestamp');
     const now = new Date();
@@ -10,7 +10,35 @@ document.addEventListener('DOMContentLoaded', function() {
         minute: '2-digit'
     };
     timestampElement.textContent = now.toLocaleDateString('en-US', options);
+    
+    // Initialize filter functionality
+    initializeFilters();
 });
+
+// Filter functionality
+function initializeFilters() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const filter = this.getAttribute('data-filter');
+            
+            // Update active button
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Filter cards
+            projectCards.forEach(card => {
+                if (filter === 'all' || card.classList.contains(filter)) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        });
+    });
+}
 
 // Project data
 const projects = {
