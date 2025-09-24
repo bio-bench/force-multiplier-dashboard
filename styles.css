@@ -172,10 +172,9 @@ body {
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 400px));
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
     grid-auto-flow: row;
-    justify-content: start;
 }
 
 /* Project Cards */
@@ -353,6 +352,12 @@ body {
     .metrics {
         flex-direction: column;
         gap: 0.5rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
