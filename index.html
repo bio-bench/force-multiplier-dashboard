@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIML Discovery Portfolio - Phase 2 Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>AIML Discovery Portfolio</h1>
+            <p class="subtitle">Phase 2 Dashboard - Decision View</p>
+            <div class="timestamp">Last Updated: <span id="timestamp"></span></div>
+        </header>
+
+        <section class="actions-summary">
+            <h2>This Week's Actions</h2>
+            <div class="actions-grid">
+                <div class="action-card urgent">
+                    <h3>Urgent</h3>
+                    <ul>
+                        <li>Resolve dataset harmonization (Boston ↔ SF)</li>
+                        <li>Secure synthesis capacity for GAN candidates</li>
+                    </ul>
+                </div>
+                <div class="action-card priority">
+                    <h3>Priority</h3>
+                    <ul>
+                        <li>Pilot predictor in Boston pipeline</li>
+                        <li>Resolve format conversion (Tel Aviv)</li>
+                    </ul>
+                </div>
+                <div class="action-card planning">
+                    <h3>Planning</h3>
+                    <ul>
+                        <li>Prioritize GAN candidate list</li>
+                        <li>Expand to 2 additional TA datasets</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="projects-section">
+            <h2>Project Portfolio</h2>
+            <div class="projects-grid">
+                <!-- Scale Projects -->
+                <div class="project-card scale" onclick="openProject('protein-ligand')">
+                    <div class="card-header">
+                        <h3>Protein–Ligand Predictor</h3>
+                        <span class="status-badge scale">Scale</span>
+                    </div>
+                    <div class="card-content">
+                        <p class="description">Early in vitro validation (30% hit rate vs predicted)</p>
+                        <div class="metrics">
+                            <div class="metric">
+                                <span class="label">Impact:</span>
+                                <span class="value high">High</span>
+                            </div>
+                            <div class="metric">
+                                <span class="label">Resources:</span>
+                                <span class="value moderate">Moderate</span>
+                            </div>
+                        </div>
+                        <div class="kpi-preview">
+                            <span>↓ 20% wet-lab cost, ↑ 15% recall</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card scale" onclick="openProject('drug-discovery-ai')">
+                    <div class="card-header">
+                        <h3>Drug Discovery AI Pipeline</h3>
+                        <span class="status-badge scale">Scale</span>
+                    </div>
+                    <div class="card-content">
+                        <p class="description">Automated compound screening with 85% accuracy</p>
+                        <div class="metrics">
+                            <div class="metric">
+                                <span class="label">Impact:</span>
+                                <span class="value high">High</span>
+                            </div>
+                            <div class="metric">
+                                <span class="label">Resources:</span>
+                                <span class="value moderate">Moderate</span>
+                            </div>
+                        </div>
+                        <div class="kpi-preview">
+                            <span>↑ 40% screening efficiency</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hold Projects -->
+                <div class="project-card hold" onclick="openProject('multi-omics')">
+                    <div class="card-header">
+                        <h3>Multi-Omics Data Harmonization</h3>
+                        <span class="status-badge hold">Hold</span>
+                    </div>
+                    <div class="card-content">
+                        <p class="description">Partial validation (80% reproducibility)</p>
+                        <div class="metrics">
+                            <div class="metric">
+                                <span class="label">Impact:</span>
+                                <span class="value medium">Medium</span>
+                            </div>
+                            <div class="metric">
+                                <span class="label">Resources:</span>
+                                <span class="value high">High</span>
+                            </div>
+                        </div>
+                        <div class="kpi-preview">
+                            <span>↓ 40% curation time, 95% QC pass rate</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card hold" onclick="openProject('clinical-trial-optimizer')">
+                    <div class="card-header">
+                        <h3>Clinical Trial Optimizer</h3>
+                        <span class="status-badge hold">Hold</span>
+                    </div>
+                    <div class="card-content">
+                        <p class="description">Patient stratification model in validation phase</p>
+                        <div class="metrics">
+                            <div class="metric">
+                                <span class="label">Impact:</span>
+                                <span class="value medium">Medium</span>
+                            </div>
+                            <div class="metric">
+                                <span class="label">Resources:</span>
+                                <span class="value high">High</span>
+                            </div>
+                        </div>
+                        <div class="kpi-preview">
+                            <span>↑ 25% enrollment efficiency</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Deprioritize Projects -->
+                <div class="project-card deprioritize" onclick="openProject('generative-molecule')">
+                    <div class="card-header">
+                        <h3>Generative Molecule Design (GAN)</h3>
+                        <span class="status-badge deprioritize">Deprioritize</span>
+                    </div>
+                    <div class="card-content">
+                        <p class="description">Pending (no in vitro data yet)</p>
+                        <div class="metrics">
+                            <div class="metric">
+                                <span class="label">Impact:</span>
+                                <span class="value uncertain">Uncertain</span>
+                            </div>
+                            <div class="metric">
+                                <span class="label">Resources:</span>
+                                <span class="value very-high">Very High</span>
+                            </div>
+                        </div>
+                        <div class="kpi-preview">
+                            <span>≥ 25% candidate survival, Novelty score < 0.6</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card deprioritize" onclick="openProject('quantum-chemistry')">
+                    <div class="card-header">
+                        <h3>Quantum Chemistry Simulator</h3>
+                        <span class="status-badge deprioritize">Deprioritize</span>
+                    </div>
+                    <div class="card-content">
+                        <p class="description">Theoretical framework, no experimental validation</p>
+                        <div class="metrics">
+                            <div class="metric">
+                                <span class="label">Impact:</span>
+                                <span class="value uncertain">Uncertain</span>
+                            </div>
+                            <div class="metric">
+                                <span class="label">Resources:</span>
+                                <span class="value very-high">Very High</span>
+                            </div>
+                        </div>
+                        <div class="kpi-preview">
+                            <span>Computational accuracy vs. experimental</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
